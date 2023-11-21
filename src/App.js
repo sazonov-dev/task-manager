@@ -24,10 +24,17 @@ function App() {
         setTasks(getStorageData('items'));
     }
 
-    const changeTaskValue = (id, key, value) => {
-        const prevValue = getStorageData('items');
-        const prevValueCurrent = prevValue[id];
-        localStorage.setItem('items', JSON.stringify({...prevValue, [id]: {...prevValueCurrent, [key]: value}}))
+    const editTask = (key, task, value) => {
+        const tasks = getStorageData('items');
+        const newTask = tasks.map((item) => {
+            if (item.id === task.id) {
+                return {
+                    ...task, [key]: value
+                }
+            }
+            return item;
+        })
+        localStorage.setItem('items', JSON.stringify(newTask))
         setTasks(getStorageData('items'));
     }
 
@@ -51,7 +58,7 @@ function App() {
       <div className="App">
           <Header/>
           <TaskCreate setNewTask={setNewTask} getStorageData={getStorageData}/>
-          <TaskList tasks={tasks} deleteTask={deleteTask}/>
+          <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask}/>
       </div>
   );
 }

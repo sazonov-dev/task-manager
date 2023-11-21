@@ -17,6 +17,7 @@ const TaskCreate = ({setNewTask}) => {
 
         task.createdDate = new Date();
         task.id = generateId();
+        task.submitted = false;
 
         return setNewTask(task);
     }
