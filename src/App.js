@@ -6,10 +6,11 @@ import {useEffect, useState} from "react";
 
 function App() {
     const [tasks, setTasks] = useState(null);
+
     const initLocalStorage = () => {
         if (!localStorage.getItem('items') || !localStorage.getItem('itemsSoon')) {
-            localStorage.setItem('items', JSON.stringify({}))
-            localStorage.setItem('itemsSoon', JSON.stringify({}))
+            localStorage.setItem('items', JSON.stringify([]))
+            localStorage.setItem('itemsSoon', JSON.stringify([]))
         }
     }
 
@@ -17,9 +18,9 @@ function App() {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    const setNewTask = (task, id) => {
+    const setNewTask = (task) => {
         const prevValue = getStorageData('items');
-        localStorage.setItem('items', JSON.stringify({...prevValue, [id]: task}))
+        localStorage.setItem('items', JSON.stringify([...prevValue, task]))
         setTasks(getStorageData('items'));
     }
 
@@ -37,7 +38,7 @@ function App() {
     }
 
     const getTasks = () => {
-        return JSON.parse(localStorage.getItem('items')) || {};
+        return JSON.parse(localStorage.getItem('items')) || [];
     }
 
     useEffect(() => {

@@ -8,7 +8,6 @@ const TaskCreate = ({setNewTask}) => {
 
     const formHandler = (event) => {
         event.preventDefault();
-        const id = generateId();
         const task = {};
         const inputs = event.target.querySelectorAll('input');
 
@@ -17,8 +16,9 @@ const TaskCreate = ({setNewTask}) => {
         })
 
         task.createdDate = new Date();
+        task.id = generateId();
 
-        return setNewTask(task, id);
+        return setNewTask(task);
     }
 
     return (
