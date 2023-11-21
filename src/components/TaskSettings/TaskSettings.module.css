@@ -1,0 +1,25 @@
+.settings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.button {
+    all: unset;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 20px;
+    background-color: #258fbb;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #1d88b2;
+}

@@ -1,0 +1,61 @@
+.item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 500px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background-color: #258fbb;
+    border: 1px solid #fff;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textEdit {
+    cursor: pointer;
+}
+
+.button {
+    all: unset;
+    cursor: pointer;
+    background-image: url("../../assets/images/delete-icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+}
+
+.inputButton {
+    all: unset;
+    cursor: pointer;
+    background-image: url("../../assets/images/success-icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+}
+
+.cross {
+    background-image: url("../../assets/images/cross-icon.svg");
+    width: 21px;
+    height: 21px;
+
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.inputItem {
+    width: 80%;
+    margin-right: auto;
+}
