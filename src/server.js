@@ -1,7 +1,10 @@
-import express from 'express';
-import nodemailer from 'nodemailer';
+const express = require('express');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
 const app = express();
-const port = 3000;
+app.use(express.json());
+app.use(cors());
+const port = 3050;
 
 const transporter = nodemailer.createTransport({
     host: "smtp.mail.ru",
@@ -9,7 +12,7 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         user: "wb.todo@mail.ru",
-        pass: "EuJPaiuI*i22",
+        pass: "m3an2q35tajCDccuF3Lc",
     },
 });
 
@@ -18,7 +21,7 @@ const mail = (data) => {
         from: "wb.todo@mail.ru",
         to: data.email,
         subject: data.subject,
-        text: data.text,
+        html: data.html,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -32,7 +35,14 @@ const mail = (data) => {
 
 app.post('/sendEmail', (req, res) => {
     console.log(req.body);
+    const {html, email, subject} = req.body;
+    mail({html, email, subject})
+    res.sendStatus(200);
 });
+
+app.get('/', (req, res) => {
+    console.log('123')
+})
 
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);

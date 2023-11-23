@@ -1,6 +1,6 @@
 .settings {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5px;
@@ -19,6 +19,13 @@
     text-align: center;
     transition: background-color 0.3s ease-in-out;
 }
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 
 .button:hover {
     background-color: #1d88b2;
